@@ -10,8 +10,8 @@ from torch.utils.data import Subset, DataLoader
 #Config
 DATA_DIR = Path(r"C:\Users\Mink\OneDrive\Documents\GitHub\data\EMNIST\processed_112_augmented_cleaned")
 BATCH_SIZE = 64
-EPOCHS = 5
-SAMPLE_RATIO = 0.1  # dùng 20% dữ liệu
+EPOCHS = 20
+SAMPLE_RATIO = 1 # 100% of the dataset
 IMAGE_SIZE = 112
 NUM_CLASSES = 36  # 0–9 + a–z
 
@@ -74,3 +74,7 @@ def train():
 
 if __name__ == "__main__":
     train()
+
+    # === Save model manually after interrupt ===
+    torch.save(model.state_dict(), "simple_cnn_epoch4_partial.pth")
+    print("Model saved as simple_cnn_epoch4_partial.pth") 
